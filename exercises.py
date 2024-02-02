@@ -40,9 +40,36 @@
 # full_name = first_name + " " + second_name
 # print(full_name)
 
-x = int(input(f'Give me x: '))
-y = int(input(f'Give me y: '))
-if x == y:
-    print("True")
-else:
-    print("False")
+# x = int(input(f'Give me x: '))
+# y = int(input(f'Give me y: '))
+# if x == y:
+#     print("True")
+# else:
+#     print("False")
+# ------------------------------------------
+## Part 2
+
+### Input and Numbers
+# number = int(input("Please give me a number: "))
+# if number % 4 == 0:
+#     print("The number is even and multiple of 4!")
+# elif number % 2 == 0:
+#     print("The number is even!")
+# else:
+#     print("The number is odd!")
+
+# number = int(input("Please give me a number: "))
+# if number % 5 == 0 and number % 3 == 0:
+#     print("buzz and fizz")
+# elif number % 5 == 0:
+#     print("buzz")
+# elif number % 3 == 0:
+#     print("fizz")
+
+### Temperature Conversion
+
+temperature_type = input("Please give me the temprature type ('f' = fahrenheit / 'c' = celsius): ")
+if temperature_type != "c" or "C" or "f" or "F":
+    print("Wrong input!")
+number = int(input("Please give me the temperature: "))
+
