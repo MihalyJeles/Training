@@ -79,16 +79,45 @@
 #         print("Wrong input!")
 
 
-temperature_type = input("Please give me the temperature type ('f' = fahrenheit / 'c' = celsius): ")
+# temperature_type = input("Please give me the temperature type ('f' = fahrenheit / 'c' = celsius): ")
 
-number = int(input("Please give me the temperature: "))
+# number = int(input("Please give me the temperature: "))
 
-if temperature_type == "f" or temperature_type == "F":
-    converted_number = (number * 1.8) + 32
-    print(f'{number} celsius = {converted_number} fahrenheit')
-elif temperature_type == "c" or temperature_type == "C":
-    converted_number = (number - 32) * (5/9)
-    print(f'{number} fahrenheit = {converted_number} celsius')
+# if temperature_type == "f" or temperature_type == "F":
+#     converted_number = (number * 1.8) + 32
+#     print(f'{number} celsius = {converted_number} fahrenheit')
+# elif temperature_type == "c" or temperature_type == "C":
+#     converted_number = (number - 32) * (5/9)
+#     print(f'{number} fahrenheit = {converted_number} celsius')
+# else:
+#     print("Wrong input!")
+
+
+## Part 3
+    
+# Bank Loan specification:
+    
+age = int(input(f'Please give me your age: '))
+salary = int(input(f'Please give me your salary: '))
+
+# if age > 21 and salary >= 21000:
+#     print("You can get a loan up to £50,000")
+# elif age > 30 and salary >= 35000:
+#     print("You can get a loan up to £75,000")
+# elif age > 30 and salary >= 50000:
+#     print("You can get a loan up to £100,000")
+# else:
+#     print("Sorry,but we can not offer to you a Loan!")
+
+
+if age > 21 and salary >= 21000:
+    if age > 30 and salary >= 50000:
+        print("You can get a loan up to £100,000")
+    elif age > 30 and (salary >= 35000 and salary < 50000):
+        print("You can get a loan up to £75,000")
+    else:
+        print("You can get a loan up to £50,000")
 else:
-    print("Wrong input!")
+    print("Sorry,but we can not offer to you a Loan!")
+
 
