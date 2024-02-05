@@ -48,10 +48,24 @@
 # else:
 #     print("Done!")
 
-list1 = ["apple", "banana", "cherry", "durian", "elderberry", "fig"]
-list2 = ["avocado", "banana", "coconut", "date", "elderberry", "fig"]
+# list1 = ["apple", "banana", "cherry", "durian", "elderberry", "fig"]
+# list2 = ["avocado", "banana", "coconut", "date", "elderberry", "fig"]
 
-for x in list1:
-    for y in list2:
-        if x == y:
-            print(x)
+# for x in list1:
+#     for y in list2:
+#         if x == y:
+#             print(x)
+
+import random
+
+number = 0
+while number < 2:
+    x = random.randint(1,100)
+    if x % 5 == 0:
+        print(f"Happened before the program exits!Because {x} is multiplie of 5")
+        break
+    elif x % 3 == 0:
+        print(f"Skipped!Because {x} is multiplie of 3")
+        continue
+    else:
+        print(x)
