@@ -67,23 +67,28 @@
 #     print("fizz")
 
 ### Temperature Conversion
-temperature_type = ""
-number = 0
-c = ""
-while c != "good":
-    temperature_type = input("Please give me the temprature type ('f' = fahrenheit / 'c' = celsius): ")
-    if temperature_type == "c" or "C" or "f" or "F":
-        c == "good"
-    else:
-        print("Wrong input!")
+
+# temperature_type = ""
+# number = 0
+# c = ""
+# while c != "good":
+#     temperature_type = input("Please give me the temprature type ('f' = fahrenheit / 'c' = celsius): ")
+#     if temperature_type == "c" or "C" or "f" or "F":
+#         c == "good"
+#     else:
+#         print("Wrong input!")
+
+
+temperature_type = input("Please give me the temperature type ('f' = fahrenheit / 'c' = celsius): ")
 
 number = int(input("Please give me the temperature: "))
 
-if temperature_type == "f" or "F":
-    converted_number = (number - 32) * (5/9)
-    print(f'{number} fahrenheit = {converted_number} celsius')
-if temperature_type == "c" or "C":
+if temperature_type == "f" or temperature_type == "F":
     converted_number = (number * 1.8) + 32
     print(f'{number} celsius = {converted_number} fahrenheit')
-
+elif temperature_type == "c" or temperature_type == "C":
+    converted_number = (number - 32) * (5/9)
+    print(f'{number} fahrenheit = {converted_number} celsius')
+else:
+    print("Wrong input!")
 
