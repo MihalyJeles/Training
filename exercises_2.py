@@ -51,10 +51,10 @@
 # list1 = ["apple", "banana", "cherry", "durian", "elderberry", "fig"]
 # list2 = ["avocado", "banana", "coconut", "date", "elderberry", "fig"]
 
-# for x in list1:
-#     for y in list2:
-#         if x == y:
-#             print(x)
+for x in list1:
+    for y in list2:
+        if x == y:
+            print(x)
 
 import random
 
