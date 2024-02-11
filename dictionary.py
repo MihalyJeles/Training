@@ -18,6 +18,17 @@ print(car)
 del car['colour']
 print(car)
 
+print(car['year'])
+
+print(car.get(x))
+
+print(car.items())
+
+print(car.keys())
+
+print(car.values())
+
+
 # d = {
 #     'a': 'b',
 #     1: 'c',
