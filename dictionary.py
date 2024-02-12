@@ -28,6 +28,22 @@ print(car.keys())
 
 print(car.values())
 
+print('colour' in car)
+
+car['colour'] = 'Red'
+
+print('colour' in car)
+
+print( len(car))
+
+fruit = {
+    'type': 'apple',
+    'color': 'green'
+}
+
+fruit_color = fruit['color']
+print(fruit_color)
+
 
 # d = {
 #     'a': 'b',
