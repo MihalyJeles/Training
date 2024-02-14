@@ -1,8 +1,8 @@
-try:
-    x = 1 / 0
-except:
-    print("You can't do that!")
-    print("We can still run the program after this though")
+# try:
+#     x = 1 / 0
+# except:
+#     print("You can't do that!")
+#     print("We can still run the program after this though")
 
 
 number = int(input(f'Please give me your age: '))
