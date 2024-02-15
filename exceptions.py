@@ -22,7 +22,13 @@
 # except:
 #     print ('Something went wrong!')
 
+# try:
+#     x = 1 / 0
+# except Exception as e:
+#     print(e)
+
+number = int(input(f'Please give a number: '))
 try:
-    x = 1 / 0
+    print(f'100 / The given number is = ',100/number)
 except Exception as e:
-    print(e)
+    print(f'This is an exception because {e} is not possible!')
