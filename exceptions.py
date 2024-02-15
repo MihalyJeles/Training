@@ -15,9 +15,14 @@
 # except:
 #     print('Please give me a number!')
 
-stuff = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# stuff = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# try:
+#     for x in stuff:
+#         print (stuff[x + 1])
+# except:
+#     print ('Something went wrong!')
+
 try:
-    for x in stuff:
-        print (stuff[x + 1])
-except:
-    print ('Something went wrong!')
+    x = 1 / 0
+except Exception as e:
+    print(e)
