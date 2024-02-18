@@ -36,4 +36,11 @@ concatenate(a="Real", b="Python", c="Is", d="Great", e="!")
 
 
 
+luxury_cars = ['Ferrari', 'Lamborghini', 'Tractor', 'Porsche']
+print(luxury_cars)
+del luxury_cars[2]
+print(luxury_cars)
+
+
+
 
