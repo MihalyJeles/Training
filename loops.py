@@ -16,10 +16,24 @@
 # else:
 #     print('Done')
 
-list1 = ["apple", "banana", "cherry", "durian", "elderberry", "fig"]
-list2 = ["avocado", "banana", "coconut", "date", "elderberry", "fig"]
+# list1 = ["apple", "banana", "cherry", "durian", "elderberry", "fig"]
+# list2 = ["avocado", "banana", "coconut", "date", "elderberry", "fig"]
 
-for x in list1:
-    for y in list2:
-        if x == y:
-            print(x)
+# for x in list1:
+#     for y in list2:
+#         if x == y:
+#             print(x)
+
+import random
+
+while True:
+    x = random.randint(1,100)
+    print(f'The generated number is: {x}')
+    if x % 5 == 0:
+        print(f'The loop breaked before the program exits, because {x} multiple of 5!')
+        break
+    elif x % 3 == 0:
+        print(f'The iteration is skipped,because {x} multiple of 3!')
+        continue
+    else:
+        print('The number is:', x)
