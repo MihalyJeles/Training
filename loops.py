@@ -24,6 +24,7 @@
 #         if x == y:
 #             print(x)
 
+# infinity while loop
 import random
 
 while True:
