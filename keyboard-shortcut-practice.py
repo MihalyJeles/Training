@@ -29,9 +29,9 @@ def iGoUp():
 # Fix the indentation in this set of nested ifs
 
 if (True):
-	print ("how did I get here?")
+	print("how did I get here?")
 else:
-	print ("This was entirely expected")
+	print("This was entirely expected")
 
 # Create a selection that spans multiple lines. Use the previous shortcut. The whole set of lines moves.
 # Indent the whole for-loop one level to the right
@@ -48,6 +48,7 @@ console.log("Look at me loop " + i)
 def horse():
 	amazing = True
 	flavour = lick()
+	# Create a selection that spans multiple lines. Use the previous shortcut. The whole set of lines is deleted.
 	if (flavour == "raisins"):
 		console.log("yum")
 
