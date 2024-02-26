@@ -48,7 +48,6 @@ console.log("Look at me loop " + i)
 def horse():
 	amazing = True
 	flavour = lick()
-	# Create a selection that spans multiple lines. Use the previous shortcut. The whole set of lines is deleted.
 	if (flavour == "raisins"):
 		console.log("yum")
 
@@ -81,10 +80,10 @@ router1 snmpd[359]: SNMPD_TRAP_COLD_START: trap_generate_cold: SNMP trap: cold s
 
 # Change all the 500s to 100s
 """
--webkit-transition: all 500ms linear;
--moz-transition:    all 500ms linear;
--o-transition:      all 500ms linear;
-transition:         all 500ms linear;
+-webkit-transition: all 100ms linear;
+-moz-transition:    all 100ms linear;
+-o-transition:      all 100ms linear;
+transition:         all 100ms linear;
 """
 
 # Alter the following code to read [1, 2, 3, 4] with the fewest key strokes possible
