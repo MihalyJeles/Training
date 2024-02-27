@@ -105,10 +105,10 @@ transition:         all 100ms linear;
 # (hint, use Copy and Paste (Ctrl+C, Ctrl+V))
 
 list[0] = getStart(0) + "alpha" +   getEnd(0)
-list[1] = getStart(1) + "beta" +    getEnd(1)
-list[2] = getStart(2) + "gamma" +   getEnd(2)
-list[3] = getStart(3) + "delta" +   getEnd(3)
-list[4] = getStart(4) + "epsilon" + getEnd(4)
+list[0] = getStart(1) + "beta" +    getEnd(1)
+list[0] = getStart(2) + "gamma" +   getEnd(2)
+list[0] = getStart(3) + "delta" +   getEnd(3)
+list[0] = getStart(4) + "epsilon" + getEnd(4)
 
 # Each of these lines should be once sentence. They have got messed up somehow. Fix it
 # (hint, ctrl+shift+right selects a whole word)
