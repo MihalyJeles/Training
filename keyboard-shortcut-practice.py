@@ -147,7 +147,7 @@ def horse():
 	# Give it a lick
 	flavour = lick()
 	if (flavour === "raisins"):
-    		# It tastes just like raisins
+    	# It tastes just like raisins
 		print("yum")
 
 # Make nato1 look exactly like nato2 using multiple cursors
