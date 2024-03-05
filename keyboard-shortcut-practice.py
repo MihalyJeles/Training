@@ -104,11 +104,11 @@ transition:         all 100ms linear;
 # Fix all lines at the same time with multiple cursors
 # (hint, use Copy and Paste (Ctrl+C, Ctrl+V))
 
-list[3] = getStart(0) + "alpha" +   getEnd(0)
-list[3] = getStart(1) + "beta" +    getEnd(1)
-list[3] = getStart(2) + "gamma" +   getEnd(2)
-list[3] = getStart(3) + "delta" +   getEnd(3)
-list[3] = getStart(4) + "epsilon" + getEnd(4)
+list[5] = getStart(0) + "alpha" +   getEnd(0)
+list[5] = getStart(1) + "beta" +    getEnd(1)
+list[5] = getStart(2) + "gamma" +   getEnd(2)
+list[5] = getStart(3) + "delta" +   getEnd(3)
+list[5] = getStart(4) + "epsilon" + getEnd(4)
 
 # Each of these lines should be once sentence. They have got messed up somehow. Fix it
 # (hint, ctrl+shift+right selects a whole word)
