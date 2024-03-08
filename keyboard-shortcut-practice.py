@@ -14,13 +14,13 @@
 # Create a selection that spans multiple lines. Use the previous shortcut. The whole set of lines moves.
 # 1. Move the second function so that it is above the first function
 # 2. Then swap the return statements so iGoDown returns "down" and iGoUp returns "up"
-def iGoUp():
-    print ("Better hope I end up at the top!")
-	return "up"
 def iGoDown():
     print ("Better hope I end up at the bottom!")
 	return "down"
 
+def iGoUp():
+    print ("Better hope I end up at the top!")
+	return "up"
 
 
 
