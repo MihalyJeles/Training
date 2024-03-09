@@ -14,13 +14,13 @@
 # Create a selection that spans multiple lines. Use the previous shortcut. The whole set of lines moves.
 # 1. Move the second function so that it is above the first function
 # 2. Then swap the return statements so iGoDown returns "down" and iGoUp returns "up"
+def iGoUp():
+    print ("Better hope I end up at the top!")
+	return "up"
 def iGoDown():
     print ("Better hope I end up at the bottom!")
 	return "down"
 
-def iGoUp():
-    print ("Better hope I end up at the top!")
-	return "up"
 
 
 
@@ -37,9 +37,9 @@ else:
 # Indent the whole for-loop one level to the right
 
 def maybeLoop(doALoop):
-if(doALoop):
-for i in range(0,10):
-console.log("Look at me loop " + i)
+	if(doALoop):
+		for i in range(0,10):
+		console.log("Look at me loop " + i)
 
 # Ctrl+Shift+K (⇧⌘K)
 # The above shortcut deletes the line your cursor is on
@@ -104,11 +104,11 @@ transition:         all 100ms linear;
 # Fix all lines at the same time with multiple cursors
 # (hint, use Copy and Paste (Ctrl+C, Ctrl+V))
 
-list[1] = getStart(0) + "alpha" +   getEnd(0)
+list[0] = getStart(0) + "alpha" +   getEnd(0)
 list[1] = getStart(1) + "beta" +    getEnd(1)
-list[1] = getStart(2) + "gamma" +   getEnd(2)
-list[1] = getStart(3) + "delta" +   getEnd(3)
-list[1] = getStart(4) + "epsilon" + getEnd(4)
+list[2] = getStart(2) + "gamma" +   getEnd(2)
+list[3] = getStart(3) + "delta" +   getEnd(3)
+list[4] = getStart(4) + "epsilon" + getEnd(4)
 
 # Each of these lines should be once sentence. They have got messed up somehow. Fix it
 # (hint, ctrl+shift+right selects a whole word)
