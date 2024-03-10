@@ -5,21 +5,21 @@
 # Sort these lines into alphabetical order
 
 # Alfa
-# Bravo
-# Charlie
 # Delta
 # Echo
+# Bravo
+# Charlie
 # Foxtrot
 
 # Create a selection that spans multiple lines. Use the previous shortcut. The whole set of lines moves.
 # 1. Move the second function so that it is above the first function
 # 2. Then swap the return statements so iGoDown returns "down" and iGoUp returns "up"
-def iGoUp():
-    print ("Better hope I end up at the top!")
-	return "up"
 def iGoDown():
     print ("Better hope I end up at the bottom!")
 	return "down"
+def iGoUp():
+    print ("Better hope I end up at the top!")
+	return "up"
 
 
 
@@ -70,20 +70,20 @@ def youDoComputersCanYouFixMyPrinter():
 # (hint: you can use shift+home to quickly select to the start of the line)
 
 """
-router1 mgd[3606]: UI_DBASE_LOGOUT_EVENT: User 'barbara' exiting configuration mode
-router1 mgd[3606]: UI_COMMIT: User 'root' performed commit: no comment
-router1 mib2d[2905]: SNMP_TRAP_LINK_DOWN: ifIndex 82, ifAdminStatus up(1), ifOperStatus down(2), ifName at - 1 / 0 / 0
-router1 snmpd[359]: SNMPD_THROTTLE_QUEUE_DRAINED: trap_throttle_timer_handler: cleared all throttled traps
-router1 snmpd[359]: SNMPD_TRAP_WARM_START: trap_generate_warm: SNMP trap: warm start
-router1 snmpd[359]: SNMPD_TRAP_COLD_START: trap_generate_cold: SNMP trap: cold start
+router2 mgd[3606]: UI_DBASE_LOGOUT_EVENT: User 'barbara' exiting configuration mode
+router2 mgd[3606]: UI_COMMIT: User 'root' performed commit: no comment
+router2 mib2d[2905]: SNMP_TRAP_LINK_DOWN: ifIndex 82, ifAdminStatus up(1), ifOperStatus down(2), ifName at - 1 / 0 / 0
+router2 snmpd[359]: SNMPD_THROTTLE_QUEUE_DRAINED: trap_throttle_timer_handler: cleared all throttled traps
+router2 snmpd[359]: SNMPD_TRAP_WARM_START: trap_generate_warm: SNMP trap: warm start
+router2 snmpd[359]: SNMPD_TRAP_COLD_START: trap_generate_cold: SNMP trap: cold start
 """
 
 # Change all the 500s to 100s
 """
--webkit-transition: all 100ms linear;
--moz-transition:    all 100ms linear;
--o-transition:      all 100ms linear;
-transition:         all 100ms linear;
+-webkit-transition: all 500ms linear;
+-moz-transition:    all 500ms linear;
+-o-transition:      all 500ms linear;
+transition:         all 500ms linear;
 """
 
 # Alter the following code to read [1, 2, 3, 4] with the fewest key strokes possible
