@@ -70,12 +70,12 @@ def youDoComputersCanYouFixMyPrinter():
 # (hint: you can use shift+home to quickly select to the start of the line)
 
 """
-router5 mgd[3606]: UI_DBASE_LOGOUT_EVENT: User 'barbara' exiting configuration mode
-router5 mgd[3606]: UI_COMMIT: User 'root' performed commit: no comment
-router5 mib2d[2905]: SNMP_TRAP_LINK_DOWN: ifIndex 82, ifAdminStatus up(1), ifOperStatus down(2), ifName at - 1 / 0 / 0
-router5 snmpd[359]: SNMPD_THROTTLE_QUEUE_DRAINED: trap_throttle_timer_handler: cleared all throttled traps
-router5 snmpd[359]: SNMPD_TRAP_WARM_START: trap_generate_warm: SNMP trap: warm start
-router5 snmpd[359]: SNMPD_TRAP_COLD_START: trap_generate_cold: SNMP trap: cold start
+router10 mgd[3606]: UI_DBASE_LOGOUT_EVENT: User 'barbara' exiting configuration mode
+router10 mgd[3606]: UI_COMMIT: User 'root' performed commit: no comment
+router10 mib2d[2905]: SNMP_TRAP_LINK_DOWN: ifIndex 82, ifAdminStatus up(1), ifOperStatus down(2), ifName at - 1 / 0 / 0
+router10 snmpd[359]: SNMPD_THROTTLE_QUEUE_DRAINED: trap_throttle_timer_handler: cleared all throttled traps
+router10 snmpd[359]: SNMPD_TRAP_WARM_START: trap_generate_warm: SNMP trap: warm start
+router10 snmpd[359]: SNMPD_TRAP_COLD_START: trap_generate_cold: SNMP trap: cold start
 """
 
 # Change all the 500s to 100s
