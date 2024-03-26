@@ -8,8 +8,21 @@
 # read the file line by line
 
 # people.py
-file = open("my_file.txt", "r")
+# file = open("my_file.txt", "r")
+# lines = file.readlines()
+# for line in lines:
+#     print(line) 
+
+# read the file's lines and add them to a list
+
+names_list = []
+
+file = open("names.txt", "r")
 lines = file.readlines()
+
 for line in lines:
-    print(line) 
+    names_list.append(line)
+
+print(names_list)
+
 
