@@ -17,11 +17,16 @@
 
 names_list = []
 
-file = open("names.txt", "r")
-lines = file.readlines()
+try:
+    file = open("names.txt", "r")
+    lines = file.readlines()
 
-for line in lines:
-    names_list.append(line.strip())
+    for line in lines:
+        names_list.append(line.strip())
+
+except FileNotFoundError as fnfe:
+    print('Unable to open file: ' + str(fnfe))
+
 
 print(names_list)
 
