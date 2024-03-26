@@ -21,7 +21,7 @@ file = open("names.txt", "r")
 lines = file.readlines()
 
 for line in lines:
-    names_list.append(line)
+    names_list.append(line.strip())
 
 print(names_list)
 
