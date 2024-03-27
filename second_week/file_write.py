@@ -12,7 +12,7 @@ try:
 except FileNotFoundError as fnfe:
     print('Unable to open file: ' + str(fnfe))
 
-
+print("\nThe original file:")
 print(names_list)
 
 #-add 2 new names to the file -------------------------
@@ -39,7 +39,7 @@ try:
 except FileNotFoundError as fnfe:
     print('Unable to open file: ' + str(fnfe))
 
-
+print("\nThe modified file:")
 print(names_list)
 
 
