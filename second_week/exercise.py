@@ -6,3 +6,5 @@ try:
         file.write(person + '\n')
 except FileNotFoundError as e:
     print("Unable to open file: "+ str(e))
+finally:
+    file.close()
