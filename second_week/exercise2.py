@@ -32,9 +32,11 @@ names_dic_values = names_dic.values()
 i = 0
 try:
     file = open("names_dictionary.txt", 'w')
-    for i in range(len(names_dic_keys)):
-        # file.write("Name: ", names_dic_keys[i], ",", "Count: ", names_dic_values[i],'\n')
-        file.write(i, "\n")
+    for key in names_dic_keys:
+        file.write(key)
+    # for i in range(len(names_dic_keys)):
+    #     # file.write("Name: ", names_dic_keys[i], ",", "Count: ", names_dic_values[i],'\n')
+    #     file.write(i, "\n")
 except FileNotFoundError as fnfe:
     print('Unable to open file: ' + str(fnfe))
 finally:
