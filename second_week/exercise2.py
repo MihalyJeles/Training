@@ -27,16 +27,11 @@ print("The asked dictionary:\n\n",names_dic)
 
 # Write out to another file where each line looks like: Name: John, Count: 4
 
-names_dic_keys = names_dic.keys()
-names_dic_values = names_dic.values()
-i = 0
 try:
     file = open("names_dictionary.txt", 'w')
-    for key in names_dic_keys:
-        file.write(key)
-    # for i in range(len(names_dic_keys)):
-    #     # file.write("Name: ", names_dic_keys[i], ",", "Count: ", names_dic_values[i],'\n')
-    #     file.write(i, "\n")
+    for key,value in names_dic.items():
+        line = "Name: " + key + ", Count: " + str(value)
+        file.write(line + '\n')
 except FileNotFoundError as fnfe:
     print('Unable to open file: ' + str(fnfe))
 finally:

@@ -1,1 +1,9 @@
-DomiJamesEmmaMarkJhonErikaSallyMisiViki
+Name: Emma, Count: 1
+Name: Erika, Count: 1
+Name: Jhon, Count: 5
+Name: Mark, Count: 1
+Name: Domi, Count: 1
+Name: Sally, Count: 2
+Name: Misi, Count: 1
+Name: James, Count: 1
+Name: Viki, Count: 1
