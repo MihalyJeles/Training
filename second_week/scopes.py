@@ -10,3 +10,7 @@ def myfunc():
     print(x) # 1
 myfunc()
 print(x) # 2
+
+from module1 import print_name
+
+print_name("Misi")
