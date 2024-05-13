@@ -18,9 +18,13 @@ with open('test.csv', mode='w') as file:
     'last_name': 'Norb',
     'age': 50
     })
-
     writer.writerow({
     'first_name': 'Emma',
     'last_name': 'Jeles',
     'age': 6
+    })
+    writer.writerow({
+    'first_name': 'Domi',
+    'last_name': 'Jeles',
+    'age': 9
     })
