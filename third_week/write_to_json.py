@@ -14,3 +14,6 @@ with open('example.json', 'r') as f:
     my_data = json.load(f)
 
 print(my_data)
+print(person["name"])
+inside_dictionary = person["name"]
+print(inside_dictionary["second"])
