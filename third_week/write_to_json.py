@@ -1,12 +1,13 @@
 import json
 
 person = {
-    "name": "Rob",
+    "name": {"first": "Rob",
+            "second": "Jeles"},
     "phone": 123456
 }
-# # encode & write to a file
-# with open('example.json', 'w') as f:
-#     json.dump(person, f)
+# encode & write to a file
+with open('example.json', 'w') as f:
+    json.dump(person, f)
 
 # read file and decode its content
 with open('example.json', 'r') as f:
