@@ -17,3 +17,4 @@ print(my_data)
 print(person["name"])
 inside_dictionary = person["name"]
 print(inside_dictionary["second"])
+print(person["name"]["second"])
