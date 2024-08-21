@@ -13,8 +13,6 @@ with open('example.json', 'w') as f:
 with open('example.json', 'r') as f:
     my_data = json.load(f)
 
-# print(my_data)
-# print(person["name"])
-# inside_dictionary = person["name"]
-# print(inside_dictionary["second"])
+# git push
+
 print(person["name"]["second"])
