@@ -13,6 +13,6 @@ with open('example.json', 'w') as f:
 with open('example.json', 'r') as f:
     my_data = json.load(f)
 
-# git push
+git push
 
 print(person["name"]["second"])
