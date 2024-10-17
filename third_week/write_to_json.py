@@ -16,3 +16,11 @@ with open('example.json', 'r') as f:
 # git push
 
 print(person["name"]["second"])
+
+x,y = "Misi", "Viki"
+
+print(y)
+
+r = 5
+b = 4
+print r+b
