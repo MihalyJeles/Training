@@ -21,6 +21,3 @@ x,y = "Misi", "Viki"
 
 print(y)
 
-r = 5
-b = 4
-print r+b
