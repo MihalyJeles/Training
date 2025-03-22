@@ -19,5 +19,5 @@ print(person["name"]["second"])
 
 x,y = "Misi", "Viki"
 
-print(y)d
+# print(y)d
 
