@@ -13,4 +13,3 @@ def fajl_letoltes(url, cel_fajlnev):
 url = "https://example.com/fajl.pdf"  # Cseréld ki a kívánt URL-re
 cel_fajlnev = "letoltott_fajl.pdf"     # Cseréld ki a kívánt fájlnévre
 fajl_letoltes(url, cel_fajlnev)
-n
