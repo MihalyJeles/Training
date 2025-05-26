@@ -1,0 +1,468 @@
+<!-- html-lint-ignore-start -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>My Stuff 2.0 | McDonald's | elementsuite</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <link rel="shortcut icon" href="https://mcd-uk-prd2.cdn.elementsuite.net/metacanvas-core/ui/webassets/favicon.ico?v=803b87b94cd10779860ec872f5730b04">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://mcd-uk-prd2.cdn.elementsuite.net/metacanvas-core/ui/webassets/apple-touch-icon.png?v=ea61da0d39d8835d17f54928bddcaa27">
+    <link rel="manifest" href="https://mcd-uk-prd2.cdn.elementsuite.net/metacanvas-core/ui/webassets/site.webmanifest?v=e5c67cc19516a5085cda292de4248b9b">
+    <link rel="mask-icon" href="https://mcd-uk-prd2.cdn.elementsuite.net/metacanvas-core/ui/webassets/safari-pinned-tab.svg?v=caa916d309faae24aa47a3f9ebfdc19d" color="#66caec">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#425563" media="(prefers-color-scheme: dark)">
+
+    <link rel="stylesheet" href="https://mcd-uk-prd2.cdn.elementsuite.net/metacanvas-core/ui/css.css?v=20250522150549872" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script src="js/jquery-1.8.3.js" nonce=""></script>
+    <script src="/js/stacktrace.js" nonce=""></script>
+    <script src="/js/succeed.js" nonce=""></script>
+    <script type="text/javascript" src="/metacanvas-core/i18n/en.js" nonce=""></script>
+    <script type="text/javascript" src="js/metaCanvas/metacanvas.security.js" nonce=""></script>
+    <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js" nonce=""></script>
+    <script type="text/javascript" src="js/Math.uuid.js" nonce=""></script>
+    <script type="text/javascript" src='js/metaCanvas/jquery.metaCanvas.broker.js' nonce=""></script>
+    <script type="text/javascript" src="/js/metacanvas_errorhandler_stub.js" nonce=""></script>
+    <script type="text/javascript" src="/js/metaCanvas_require.js" nonce=""></script>
+    <script type="text/javascript" src="js/mustache.js" nonce=""></script>
+    <script type="text/javascript" src="js/metaCanvas/util.js" nonce=""></script>
+    <script src="/js/jquery.slog.js" nonce=""></script>
+    <script src="/js/jquery.cookie.js" nonce=""></script>
+    <script src="js/metaCanvas/jquery.metaCanvas.configuredCard.js" nonce=""></script>
+    <script src="/js/metaCanvas/jquery.metaCanvas.notify.js" nonce=""></script>
+    <script src="/js/metaCanvas/jquery.metaCanvas.cardManager.js" nonce=""></script>
+
+    <script nonce="">
+      var cookies = document.cookie.split(';').reduce(function(acc, cookieInfo) {
+        cookieInfo = cookieInfo.split('=').map(function(val) {
+          return val.trim();
+        });
+        acc[cookieInfo[0]] = cookieInfo[1];
+        return acc;
+      }, {});
+
+      if (cookies.mclocale) {
+        var el = document.querySelector('html');
+        el.setAttribute('lang', cookies.mclocale);
+      }
+
+      if (!cookies['mclocaleautoset']) {
+        document.cookie = 'mclocaleautoset=Y;path=/';
+        if (navigator.language.indexOf('en')) {
+          document.cookie = 'mclocale=en;path=/';
+          location.reload();
+        }
+      }
+
+      var $buoop = {
+        vs: {
+          i: 10,
+          f: 15,
+          o: 12.1,
+          s: 5.1
+        },
+        c: 2
+      };
+
+      function $buo_f() {
+        var e = document.createElement("script");
+        e.src = "//browser-update.org/update.js";
+        document.body.appendChild(e);
+      };
+      try {
+        document.addEventListener("DOMContentLoaded", $buo_f, false)
+      } catch (e) {
+        window.attachEvent("onload", $buo_f)
+      }
+
+      function isEmpty(val) {
+        if (typeof(val) === 'undefined') return true;
+        if (val === null) return true;
+        if (typeof(val) === 'string' && val.trim() === '') return true;
+        return false;
+      }
+
+      function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&#]*)/gi, function(m, key, value) {
+          vars[key] = value;
+        });
+        return vars;
+      }
+
+      if (typeof(metaCanvas) === 'undefined') {
+        var metaCanvas = {
+          data: {},
+          ready: [],
+          allowedProjects: {}
+        };
+      }
+
+      var useCookie = function() {
+        if (cookies.mcusername) {
+          document.getElementById('username').value = cookies.mcusername;
+          document.getElementById('rememberme').setAttribute('checked', 'checked');
+        }
+        if (cookies.mclocale) {
+          var i18nJs = document.createElement('script');
+          var url = "/metacanvas-core/i18n/" + cookies.mclocale + ".js"
+          i18nJs.addEventListener('load', function() {
+            translate();
+          });
+          i18nJs.setAttribute("src", url);
+          document.head.appendChild(i18nJs);
+        }
+      };
+
+      function showLoadingIcon() {
+        document.getElementById('loading-button').style.display = 'inherit';
+        document.getElementById('loginbutton').disabled = true;
+      }
+
+      function hideLoadingIcon() {
+        document.getElementById('loginbutton').disabled = false;
+        document.getElementById('loading-button').style.display = 'none';
+      }
+
+      function login() {
+        showLoadingIcon();
+        metaCanvas.security.login({
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value,
+          totpcode: document.getElementById("totpcode").value
+        }).done(function(ret) {
+          hideLoadingIcon();
+          if (ret.status == 0) {
+            document.getElementById("authMessages").style.display = "block"
+            document.getElementById("message").innerText = ret.msg;
+          } else {
+            if (!isEmpty(ret.redirectTo)) {
+              // don't use the challege questions
+              window.location.href = ret.redirectTo;
+              return;
+            } else {
+              window.location.href = 'index.php?app=Database&action=appDefault'
+              return;
+            }
+          }
+        });
+      }
+
+      // Debounce function
+      function debounce(func, wait) {
+        var timeout;
+        return function() {
+          var context = this, args = arguments;
+          clearTimeout(timeout);
+          timeout = setTimeout(function() {
+            func.apply(context, args);
+          }, wait);
+        };
+      }
+
+      var debouncedLogin = debounce(login, 300);
+
+      function forgottenPassword() {
+        document.getElementById("native-login-card").style.setProperty('display', 'none', 'important')
+        document.getElementById("forgotten-card").style.setProperty('display', 'block', 'important')
+      }
+
+      function returnToLogIn() {
+        document.getElementById("forgotten-card").style.setProperty('display', 'none', 'important')
+        document.getElementById("native-login-card").style.setProperty('display', 'block', 'important')
+      }
+
+      function chooseNativeLogin() {
+        document.getElementById("sso-login-card").style.setProperty('display', 'none', 'important')
+        document.getElementById("native-login-card").style.setProperty('display', 'block', 'important')
+        document.getElementById("native-login-cancel").style.setProperty('display', 'block', 'important')
+      }
+
+      function returnToLogInOptions() {
+        document.getElementById("native-login-card").style.setProperty('display', 'none', 'important')
+        document.getElementById("sso-login-card").style.setProperty('display', 'block', 'important')
+      }
+
+      function keyPress(element) {
+        if (element.keyCode == 13) {
+          debouncedLogin();
+        }
+        if (element.getModifierState && element.getModifierState('CapsLock')) {
+          document.getElementById("caps-lock-warning").style.setProperty('display', 'block', 'important')
+        } else {
+          document.getElementById("caps-lock-warning").style.setProperty('display', 'none', 'important')
+        }
+      }
+
+      function showPassword() {
+        document.getElementById("password").type = "text";
+        document.getElementById("show-password").style.setProperty('display', 'none', 'important')
+        document.getElementById("hide-password").style.setProperty('display', 'block', 'important')
+      }
+
+      function show2FA() {
+        document.getElementById("mfa-login").style.setProperty('display', 'block', 'important')
+        document.getElementById("mfa-login-button").style.setProperty('display', 'none', 'important')
+      }
+
+
+
+      function hidePassword() {
+        document.getElementById("password").type = "password";
+        document.getElementById("hide-password").style.setProperty('display', 'none', 'important')
+        document.getElementById("show-password").style.setProperty('display', 'block', 'important')
+      }
+
+
+      window.onload = function() {
+        useCookie();
+
+        /* Most browswers only fire keydown when caps is on and keyup when caps is off so need to check both */
+        var inputs = document.querySelectorAll("#username, #password, #totpcode")
+
+        Array.prototype.forEach.call(inputs, function(input) {
+          input.addEventListener('keydown', keyPress);
+          input.addEventListener('keyup', keyPress);
+        });
+      };
+    </script>
+  </head>
+
+  <body>
+    <script nonce="">
+      var cordova = null;
+      if ((typeof(webkit) !== 'undefined' && webkit.messageHandlers && webkit.messageHandlers.cordova_iab) || typeof(cordova_iab) !== 'undefined') {
+        if (typeof(cordova_iab) !== 'undefined') {
+          cordova = cordova_iab;
+        } else {
+          cordova = webkit.messageHandlers.cordova_iab
+        }
+      }
+      if (cordova) {
+        document.body.style.visibility = 'hidden';
+        cordova.postMessage(JSON.stringify({
+          type: 'login'
+        }));
+      }
+
+      let toInject = '';
+
+      if ("true" === "false") {
+        toInject += '#security-message {display: none !important;}';
+      }
+      if ("true" === "false" || cordova) {
+        toInject += '#app-links {display: none !important;}';
+      }
+      if ("false" === "true") {
+        toInject += '#mfa-login-button {display: inline-block !important;}';
+      }
+      if ("false" === "true") {
+        toInject += '#locale-selector {display: block !important;}';
+      }
+      if ("true" === "true") {
+        toInject += '#sso-login-card {display: block !important;}';
+        toInject += '#native-login-card {display: none !important;}';
+      }
+      if ('true' === 'false') {
+        toInject += '#login-page.feature {background-image: none !important;}'
+      }
+      if ('/metacanvas-core/ui/webassets/portal-logo-mcdstuff.svg') {
+        toInject += '#system-logo {background-image: url(/metacanvas-core/ui/webassets/portal-logo-mcdstuff.svg) !important;}';
+      }
+      if ('https://player.vimeo.com/video/949473528?h=a0eace7dab') {
+        toInject += '#help-option {display: block !important;}';
+      }
+
+      var clickCount = 0;
+      var logoClicked = function() {
+        if (clickCount === 0) {
+          setTimeout(function() {
+            clickCount = 0;
+          }, 5000);
+        }
+        if (typeof(webkit) !== 'undefined' && webkit.messageHandlers && webkit.messageHandlers.cordova_iab) {
+          clickCount++;
+          if (clickCount > 4) {
+            clickCount = 0;
+            webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
+              type: 'reset'
+            }));
+          }
+        }
+      }
+
+      const head = document.querySelector('head');
+
+      const style = document.createElement('style');
+
+      let mouseDownOnLogoTime = null;
+      let triggerMouseDown = () => {
+        mouseDownOnLogoTime = +new Date();
+        setTimeout(redirectIfMouseDownLongEnough(mouseDownOnLogoTime), 1500);
+      }
+
+      let resetMouseDown = () => {
+        mouseDownOnLogoTime = null;
+      }
+
+      let redirectIfMouseDownLongEnough = (thisTime) => {
+        return () => {
+          if (mouseDownOnLogoTime === thisTime) {
+            resetMouseDown();
+            if ('https://elementsuite.okta.com/home/elementsuite_mcdukprd_1/0oa5f8h82z0LJagKs417/aln5f8pb5qJ63PRwt417') {
+              location.href = 'https://elementsuite.okta.com/home/elementsuite_mcdukprd_1/0oa5f8h82z0LJagKs417/aln5f8pb5qJ63PRwt417'
+            } else {
+              alert('Internal Okta URL not configured');
+            }
+          }
+        }
+      }
+
+      style.innerHTML = toInject;
+
+      head.appendChild(style);
+
+      window.addEventListener("DOMContentLoaded", (event) => {
+          document.getElementById("system-logo").addEventListener('click', logoClicked);
+          document.getElementById("native-login-button").addEventListener('click', chooseNativeLogin);
+          document.getElementById("show-password").addEventListener('click', showPassword);
+          document.getElementById("hide-password").addEventListener('click', hidePassword);
+          document.getElementById("loginbutton").addEventListener('click', debouncedLogin);
+          document.getElementById("mfa-login-button").addEventListener('click', show2FA);
+          document.getElementById("forgot-password-link").addEventListener('click', forgottenPassword);
+          document.getElementById("native-login-cancel").addEventListener('click', returnToLogInOptions);
+          document.getElementById("forgot-password-cancel").addEventListener('click', returnToLogIn);
+          document.getElementById("elementsuite-logo").addEventListener('mousedown', triggerMouseDown);
+          document.getElementById("elementsuite-logo").addEventListener('mouseup', resetMouseDown);
+          document.getElementById("version-no").addEventListener('mousedown', triggerMouseDown);
+          document.getElementById("version-no").addEventListener('mouseup', resetMouseDown);
+      });
+    </script>
+    <portal-ui id="login-page" class="feature">
+      <div class="portal-card login-card">
+        <h1 id="system-logo">My Stuff 2.0 | McDonald's</h1>
+
+        <div id="sso-login-card">
+          <a id="sso-login-button" href="/sso/login" class="button primary"><span class="translate" data-i18n="login.withSSO">Log in with</span> <span id="sso-name">McDonald's Account</span></a>
+          <a id="native-login-button" class="button elementsuite translate" data-i18n="login.withes">Log in with elementsuite Account</a>
+        </div>
+
+        <div id="native-login-card">
+          <h2 class="translate" data-i18n="general.login">Log in</h2>
+          <label class="translate" for="username" data-i18n="general.username">Username</label>
+          <input id="username" type="text" />
+          <label class="translate" for="password" data-i18n="general.password">Password</label>
+          <small id="caps-lock-warning" class="translate danger align-right" data-i18n="general.capsLockIsOn" style="display:none;">Caps Lock Is On</small>
+          <input id="password" type="password" />
+          <p class="text-right">
+            <a href="#" id="show-password" class="translate" data-i18n="general.showPassword">Show password</a>
+            <a href="#" id="hide-password" class="translate" data-i18n="general.hidePassword" style="display:none;">Hide password</a>
+          </p>
+          <div id="mfa-login" style="display:none;">
+            <label for="totpcode" data-i18n="2fa.authentication" class="translate">2 Factor Authentication Code</label>
+            <input id="totpcode" type="text" maxlength="6" placeholder="000000" />
+          </div>
+          <button type="submit" class="primary translate" id="loginbutton" data-i18n="general.submit">Submit</button>
+          <div id="loading-button" style="display: none;" class="loading-icon"><i class="client-specific"></i><?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="50px" height="100%" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><rect id="Atom" x="0" y="0" width="400" height="400" style="fill:none;"/><path d="M159.723,246.685c-7.656,0 -14.576,-1.887 -20.762,-5.659c-6.186,-3.773 -10.999,-9.029 -14.438,-15.77c-3.44,-6.74 -5.16,-14.299 -5.16,-22.676l0,-3.579c0,-8.654 1.678,-16.449 5.035,-23.383c3.356,-6.935 8.03,-12.385 14.022,-16.352c5.991,-3.966 12.482,-5.951 19.473,-5.951c10.929,0 19.597,3.731 26.005,11.193c6.407,7.462 9.612,17.656 9.612,30.582l0,5.576l-64.244,0l0,1.914c0,10.208 2.927,18.71 8.779,25.506c5.853,6.796 13.218,10.194 22.095,10.194c5.325,0 10.027,-0.971 14.105,-2.913c4.077,-1.941 7.781,-5.048 11.109,-9.32l6.241,4.743c-7.323,10.597 -17.947,15.895 -31.872,15.895Zm-1.83,-84.881c-7.49,0 -13.8,2.746 -18.932,8.238c-5.132,5.492 -8.253,12.871 -9.362,22.136l54.008,0l0,-1.082c-0.278,-8.655 -2.747,-15.7 -7.407,-21.137c-4.66,-5.437 -10.762,-8.155 -18.307,-8.155Z" style="fill-rule:nonzero;"/><path d="M260.748,220.555c0,-3.606 -1.483,-6.353 -4.452,-8.239c-2.968,-1.886 -7.891,-3.55 -14.771,-4.993c-6.879,-1.442 -12.621,-3.273 -17.225,-5.492c-10.097,-4.882 -15.146,-11.956 -15.146,-21.22c0,-7.767 3.273,-14.258 9.82,-19.473c6.546,-5.215 14.868,-7.823 24.965,-7.823c10.763,0 19.459,2.663 26.089,7.989c6.63,5.326 9.945,12.233 9.945,20.721l-20.223,0c0,-3.883 -1.443,-7.115 -4.328,-9.695c-2.883,-2.579 -6.712,-3.869 -11.483,-3.869c-4.438,0 -8.058,1.026 -10.86,3.079c-2.802,2.053 -4.202,4.799 -4.202,8.238c0,3.107 1.303,5.52 3.911,7.24c2.607,1.72 7.877,3.454 15.811,5.201c7.933,1.748 14.16,3.828 18.682,6.242c4.522,2.413 7.878,5.312 10.07,8.696c2.19,3.384 3.286,7.489 3.286,12.316c0,8.1 -3.356,14.66 -10.068,19.681c-6.714,5.02 -15.507,7.531 -26.381,7.531c-7.378,0 -13.952,-1.332 -19.722,-3.995c-5.77,-2.663 -10.263,-6.324 -13.481,-10.984c-3.218,-4.66 -4.827,-9.681 -4.827,-15.062l19.64,0c0.277,4.771 2.08,8.446 5.409,11.026c3.328,2.579 7.739,3.869 13.232,3.869c5.326,0 9.375,-1.012 12.149,-3.037c2.774,-2.025 4.16,-4.674 4.16,-7.947Z" style="fill-rule:nonzero;"/><path class="rotating-atom" d="M69.976,264.207c23.698,47.856 73.045,80.793 130.024,80.793c20.069,0 39.19,-4.086 56.578,-11.47c1.939,4.796 4.841,9.102 8.467,12.675c-19.877,8.866 -41.89,13.795 -65.045,13.795c-64.624,0 -120.351,-38.396 -145.593,-93.6c5.196,-1.07 10.537,-2.037 15.569,-2.193Zm209.198,-203.248c48.264,27.562 80.826,79.529 80.826,139.041c0,52.405 -25.249,98.96 -64.235,128.152c-1.621,-5.292 -3.208,-10.776 -3.957,-15.949c32.463,-26.6 53.192,-67 53.192,-112.203c0,-52.958 -28.452,-99.323 -70.89,-124.63c2.609,-4.314 4.374,-9.194 5.064,-14.411Zm-236.992,165.503c-1.435,-8.609 -2.182,-17.449 -2.182,-26.462c0,-88.306 71.694,-160 160,-160c11.387,0 22.498,1.192 33.215,3.458c0.178,1.752 0.285,3.599 0.285,5.542c0,3.202 -0.292,6.479 -0.709,9.73c-10.538,-2.44 -21.515,-3.73 -32.791,-3.73c-80.028,0 -145,64.972 -145,145c0,7.3 0.541,14.475 1.584,21.487c-5.209,0.664 -10.085,2.398 -14.402,4.975Z" style=""/><path class="rotating-atom" d="M84.765,287.979c26.507,34.653 68.279,57.021 115.235,57.021c20.069,0 39.19,-4.086 56.578,-11.47c1.939,4.796 4.841,9.102 8.467,12.675c-19.877,8.866 -41.89,13.795 -65.045,13.795c-52.8,0 -99.661,-25.631 -128.808,-65.119c5.019,-1.361 9.623,-3.741 13.573,-6.902Zm206.596,1.521c16.558,0 30,13.443 30,30c0,16.557 -13.442,30 -30,30c-16.557,0 -30,-13.443 -30,-30c0,-16.557 13.443,-30 30,-30Zm-12.187,-228.541c48.264,27.562 80.826,79.529 80.826,139.041c0,38.312 -13.495,73.497 -35.986,101.057c-2.534,-4.472 -5.959,-8.373 -10.034,-11.461c19.426,-24.67 31.02,-55.79 31.02,-89.596c0,-52.958 -28.452,-99.323 -70.89,-124.63c2.609,-4.314 4.374,-9.194 5.064,-14.411Zm-217.811,167.726c16.558,0 30,13.442 30,30c0,16.557 -13.442,30 -30,30c-16.557,0 -30,-13.443 -30,-30c0,-16.558 13.443,-30 30,-30Zm-19.181,-2.223c-1.435,-8.609 -2.182,-17.449 -2.182,-26.462c0,-88.306 71.694,-160 160,-160c2.678,0 5.341,0.066 7.988,0.197c-2.115,4.538 -3.347,9.569 -3.477,14.872c-1.498,-0.046 -3.002,-0.069 -4.511,-0.069c-80.028,0 -145,64.972 -145,145c0,7.3 0.541,14.475 1.584,21.487c-5.209,0.664 -10.085,2.398 -14.402,4.975Zm199.818,-200.462c16.557,0 30,13.443 30,30c0,16.557 -13.443,30 -30,30c-16.557,0 -30,-13.443 -30,-30c0,-16.557 13.443,-30 30,-30Z" style=""/></svg></div>
+          <button id="mfa-login-button" data-i18n="2fa.login" class="translate">Login with 2FA</button>
+          <div class="alert danger" id="authMessages" style="display:none;">
+            <p><i class="fa-light fa-exclamation-triangle" aria-hidden="true"></i><span id="message"></span></p>
+          </div>
+          <p><a href="#" id="forgot-password-link" class="translate" data-i18n="general.iForgotMyPassword">I forgot my password</a></p>
+          <p><a href="#" id="native-login-cancel" class="translate" data-i18n="login.chooseDifferentLoginOptions" style="display:none;">Choose different login option</a></p>
+        </div>
+
+        <div id="forgotten-card" style="display:none;">
+          <div class="card card_ad73e450-d6f7-4374-b5d4-09650cd70230" id="card_C2CA8393-3028-4880-A127-03F09CC5A923" data-card="forgottenPassword" data-page="login" data-site="login">
+            <script type="text/javascript" nonce="">
+              + function() {
+                var req = (
+                  metaCanvas_require.config({
+                    context: "ad73e450-d6f7-4374-b5d4-09650cd70230",
+                    baseUrl: "/metacanvas-core/ui/module/define",
+                    waitSeconds: 0
+                  })
+                );
+                req(["ad73e450-d6f7-4374-b5d4-09650cd70230\/es", '118BD7CC-F7AD-43F7-9CBC-6280E9096DF1/embedCard'], function(card, embedCard) {
+                  var uniq = 'C2CA8393-3028-4880-A127-03F09CC5A923';
+                  var config = {
+                    "site": "login",
+                    "page": "login",
+                    "metadata": null
+                  };
+                  embedCard(card, config, uniq);
+                });
+              }();
+            </script>
+          </div>
+          <p><a href="#" id="forgot-password-cancel" class="translate" data-i18n="login.returnToLogIn">Return to log in</a></p>
+        </div>
+
+        <div id="app-links" class="app-links desktop-hidden">
+          <hr />
+          <a href="https://apps.apple.com/gb/app/work-by-elementsuite/id1668148367" class="app-icon">
+            <img class="app-image" src="/metacanvas-core/ui/webassets/applestore.png" alt="Download on the App Store" />
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.elementsuite.mobile.app&hl=en&gl=US" class="app-icon">
+            <img class="app-image" src="/metacanvas-core/ui/webassets/googlestore.png" alt="Get it on Google Play" />
+          </a>
+          <p class="company-code"><span class="translate" data-i18n="login.companyCode">Company Code</span>: 1341</p>
+        </div>
+
+        <p id="help-option">
+          <span class="translate" data-i18n="login.helpText">Need help?</span>
+          <a href="https://player.vimeo.com/video/949473528?h=a0eace7dab" id="help-action" class="translate" data-i18n="login.helpAction" target="_blank">Contact us</a>
+        </p>
+
+        <small id="security-message"><strong class="translate" data-i18n="login.securityNotice">Security Notice:</strong> <span class="translate" data-i18n="login.securityNoticeBody">Only individuals with an authorised username and password may utilise elementsuite's secure web sites and applications. Unauthorised use is strictly prohibited.</span></small>
+
+        <div id="locale-selector">
+          <div class="card card_7471b20a-2020-4940-888a-20f96424c6a1" id="locale-select" data-card="LocaleSelector" data-page="login" data-site="login">
+            <script type="text/javascript" nonce="">
+              + function() {
+                var req = (
+                  metaCanvas_require.config({
+                    context: "7471b20a-2020-4940-888a-20f96424c6a1",
+                    baseUrl: "/metacanvas-core/ui/module/define",
+                    waitSeconds: 0
+                  })
+                );
+                req(['b1ecbbef-3dd0-45ab-8479-b95c03db6d35/LocaleSelect'], function(alert) {
+                  alert.default.attachToElement(document.getElementById('locale-select'));
+                });
+              }();
+            </script>
+          </div>
+        </div>
+
+        <div class="elementsuite-version">
+          <span class="logo" id="elementsuite-logo"></span>
+          <small id="version-no">v.2025.5.2</small>
+        </div>
+      </div>
+    </portal-ui>
+
+    <div class="card card_a19a155d-297f-4dcc-9b1a-272d19646654" id="cookie-holder" data-card="CookieAlert" data-page="login" data-site="login">
+      <script type="text/javascript" nonce="">
+        + function() {
+          var req = (
+            metaCanvas_require.config({
+              context: "a19a155d-297f-4dcc-9b1a-272d19646654",
+              baseUrl: "/metacanvas-core/ui/module/define",
+              waitSeconds: 0
+            })
+          );
+          req(['7624047d-4ef8-4396-858b-b6c5b39daf05/built-component.cookieAlert'], function(alert) {
+            alert.default.attachToElement(document.getElementById('cookie-holder'));
+          });
+        }();
+      </script>
+    </div>
+  </body>
+
+</html>
+<!-- html-lint-ignore-end -->
