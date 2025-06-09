@@ -31,7 +31,7 @@ if login_response.ok:
 #     else:
 #         print("Failed to download PDF.")
 # else:
-#     print("Login failed.")g
+#     print("Login failed.")
 
 def fajl_letoltes(url, cel_fajlnev):
     try:
