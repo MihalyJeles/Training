@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#425563" media="(prefers-color-scheme: dark)">
 
-    <link rel="stylesheet" href="https://mcd-uk-prd2.cdn.elementsuite.net/metacanvas-core/ui/css.css?v=20250522150549872" />
+    <link rel="stylesheet" href="https://mcd-uk-prd2.cdn.elementsuite.net/metacanvas-core/ui/css.css?v=20250605150607207" />
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <script src="js/jquery-1.8.3.js" nonce=""></script>
@@ -441,7 +441,7 @@
 
         <div class="elementsuite-version">
           <span class="logo" id="elementsuite-logo"></span>
-          <small id="version-no">v.2025.5.2</small>
+          <small id="version-no">v.2025.6.1</small>
         </div>
       </div>
     </portal-ui>
